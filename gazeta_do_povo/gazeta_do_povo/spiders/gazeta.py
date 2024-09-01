@@ -14,8 +14,6 @@ class GazetaSpider(scrapy.spiders.XMLFeedSpider):
         titulo = node.xpath('title/text()').get()
         link = node.xpath('link/text()').get()
         descricao_noticia = node.xpath('description/text()').get()
-
-
         item = GazetaDoPovoItem()
         item['titulo'] = titulo
         item['link'] = link
