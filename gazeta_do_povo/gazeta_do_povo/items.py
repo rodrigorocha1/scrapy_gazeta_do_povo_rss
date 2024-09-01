@@ -12,3 +12,5 @@ class GazetaDoPovoItem(scrapy.Item):
     titulo = scrapy.Field(serialize=str)
     link = scrapy.Field(serialize=str)
     descricao_noticia = scrapy.Field(serialize=str)
+    data_publicacao = scrapy.Field(serialize=str)
+    data_extracao = scrapy.Field(serialize=str)

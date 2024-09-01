@@ -7,6 +7,7 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 import re
+from datetime import datetime
 
 
 class CleanGazetaDoPovoPipeline:
@@ -19,4 +20,15 @@ class CleanGazetaDoPovoPipeline:
             item['descricao_noticia'])
         if item['descricao_noticia']:
             item['descricao_noticia'] = item['descricao_noticia'].group(1)
-            return item
+
+        item['data_publicacao'] = datetime.strptime(
+            item['data_publicacao'], "%a, %d %b %Y %H:%M:%S %Z")
+
+        item['data_publicacao'] = item['data_publicacao'].strftime(
+            " %d-%m-%Y %H:%M:%S")
+
+        return item
+
+
+class SqlitePipeline:
+    pass
