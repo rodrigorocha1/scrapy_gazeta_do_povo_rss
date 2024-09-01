@@ -8,7 +8,7 @@ class GazetaSpider(scrapy.spiders.XMLFeedSpider):
     name = "gazeta"
     allowed_domains = ["www.gazetadopovo.com.br"]
     start_urls = ["https://www.gazetadopovo.com.br/feed/rss/mundo.xml"]
-    itertag = 'item'  # Define o nó que será iterado no feed
+    itertag = 'item'
 
     def parse_node(self, response: Response, node: scrapy.Selector):
         titulo = node.xpath('title/text()').get()
