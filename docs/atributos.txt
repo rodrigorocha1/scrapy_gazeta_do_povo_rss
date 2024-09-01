@@ -1,0 +1,6 @@
+scrapy schell "https://www.gazetadopovo.com.br/feed/rss/mundo.xml"
+
+
+response.xpath('//title/text()').getall() -> Lista dos títulos
+response.xpath('//link/text()').getall() -> Lista de link
+response.xpath('//description/text()').getall() -> Lista de descrição
