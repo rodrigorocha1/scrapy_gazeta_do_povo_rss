@@ -1,3 +1,4 @@
+import os
 # Scrapy settings for gazeta_do_povo project
 #
 # For simplicity, this file contains only settings considered important or
@@ -60,10 +61,13 @@ ROBOTSTXT_OBEY = True
 #    "scrapy.extensions.telnet.TelnetConsole": None,
 # }
 
+SQLITE_DATABASE = f"/home/rodrigo/Documentos/projetos/scrapy_gazeta_do_povo_rss/scrapy_gazeta.db"
+
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "gazeta_do_povo.pipelines.CleanGazetaDoPovoPipeline": 300,
+    "gazeta_do_povo.pipelines.SqlitePipeline": 800,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
