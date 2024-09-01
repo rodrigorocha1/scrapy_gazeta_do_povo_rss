@@ -9,6 +9,6 @@ import scrapy
 class GazetaDoPovoItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    titulo = scrapy.Field()
-    link = scrapy.Field()
-    descricao_noticia = scrapy.Field()
+    titulo = scrapy.Field(serialize=str)
+    link = scrapy.Field(serialize=str)
+    descricao_noticia = scrapy.Field(serialize=str)
