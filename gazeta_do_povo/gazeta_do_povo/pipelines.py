@@ -6,8 +6,17 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
+import re
 
 
-class GazetaDoPovoPipeline:
+class CleanGazetaDoPovoPipeline:
     def process_item(self, item, spider):
-        return item
+
+        item['descricao_noticia'] = item['descricao_noticia'].replace(
+            "]]>", "").replace("<![CDATA[", "")
+        text_pattern = re.compile(r'<br\s*/>\s*(.*)')
+        item['descricao_noticia'] = text_pattern.search(
+            item['descricao_noticia'])
+        if item['descricao_noticia']:
+            item['descricao_noticia'] = item['descricao_noticia'].group(1)
+            return item
